@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!--配置服务名称-->
+    <dubbo:application name="customer" />
+    <!--配置服务注册中心，dubbo不仅仅支持zookeeper-->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!--声明服务引用，与服务声明接口类型一致-->
+    <dubbo:reference interface="com.example.dubbo.service.UserService" id="UserService" />
+</beans>
